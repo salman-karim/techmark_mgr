@@ -9,5 +9,9 @@
       <input type="submit" value="Sign Up">
     </form>
 
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>  
+
   </body>
 </html>

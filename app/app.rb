@@ -35,11 +35,17 @@ class TechmarkManager < Sinatra::Base
                     )
     if @user.save
       session[:user_id] = @user.id
-      redirect to'/links'
+      redirect '/links'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'user/new'
     end
+  end
+
+  post '/sessions' do
+    session.clear
+    flash[:notice] = 'Goodbye'
+    redirect '/'
   end
 
   helpers do
