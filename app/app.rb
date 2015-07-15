@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './data_mapper_setup'
+require './app/data_mapper_setup.rb'
 require 'data_mapper'
 
 class TechmarkManager < Sinatra::Base
@@ -15,6 +15,9 @@ class TechmarkManager < Sinatra::Base
     erb :links
   end
 
+  get  '/user/new' do
+    erb :'user/new'
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
