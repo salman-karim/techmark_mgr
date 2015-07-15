@@ -1,6 +1,8 @@
 require 'sinatra/base'
-require './app/data_mapper_setup.rb'
 require 'data_mapper'
+require 'sinatra/flash'
+
+require './app/data_mapper_setup.rb'
 
 class TechmarkManager < Sinatra::Base
 
@@ -8,9 +10,10 @@ class TechmarkManager < Sinatra::Base
 
   enable :sessions, :static
   set :session_secret, 'super-secret'
+  register Sinatra::Flash
 
   get '/' do
-    'Hello TechmarkManager!'
+    erb :index
   end
 
   get '/links' do
@@ -18,6 +21,7 @@ class TechmarkManager < Sinatra::Base
   end
 
   get  '/user/new' do
+    @user = User.new
     erb :'user/new'
   end
 
@@ -33,6 +37,7 @@ class TechmarkManager < Sinatra::Base
       session[:user_id] = @user.id
       redirect to'/links'
     else
+      flash.now[:errors] = @user.errors.full_messages
       erb :'user/new'
     end
   end
