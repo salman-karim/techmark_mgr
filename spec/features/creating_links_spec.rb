@@ -1,10 +1,9 @@
 
-
-feature 'creating links' do
+feature 'Creating links' do
 
   scenario 'I can create new links' do
     visit '/links/new'
-    fill_in 'URL', with: 'www.codewars.com'
+    fill_in 'url', with: 'www.codewars.com'
     fill_in 'title', with: 'Code Wars'
     fill_in 'category', with: 'General'
     fill_in 'description', with: 'self-learning'

@@ -9,6 +9,6 @@ class Link
   # property :category, String, :length => 30,:required => true
   property :description, String, :length => 200
 
-  has n, :categories, through: Resource
+  has n, :category, through: Resource
 
 end
