@@ -9,3 +9,4 @@ FactoryGirl.define do
     password 'banana123'
     password_confirmation 'banana123'
   end
+end

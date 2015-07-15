@@ -9,14 +9,16 @@ require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
 
-require './spec/factories/user.rb'
-
-require './spec/helpers/sign_up.rb'
+Dir["./spec/factories/*.rb"].each {|file| require file}
+Dir["./spec/helpers/*.rb"].each {|file| require file}
+require './app/data_mapper_setup.rb'
 
 Capybara.app = TechmarkManager
 
 RSpec.configure do |config|
+
   config.include Capybara::DSL
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -25,14 +27,5 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.warnings = true
-
-  if config.files_to_run.one?
-    config.default_formatter = 'doc'
-  end
-
-  config.profile_examples = 10
-  config.order = :random
-  Kernel.srand config.seed
-=end
+  config.include FactoryGirl::Syntax::Methods
 end
