@@ -2,11 +2,13 @@
 
 <ul id="links">
   <% @links.each do |link| %>
-    <li>
+    <ul>
       URL: <%= link.url %>
       Title: <%= link.title %>
-      <!-- Category: <%= link.category %> -->
+      Category: <%= link.category %>
       Description: <%= link.description %>
-    </li>
+    </ul>
   <% end %>
 </ul>
+
+<a href='/links/new'>Add a new link</a>

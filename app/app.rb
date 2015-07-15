@@ -27,8 +27,15 @@ class TechmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    Link.create(url: params[:url], title: params[:title], description: params[:description])
+    link = Link.new(url: params[:url], title: params[:title], description: params[:description])
     # Category.create(category: params[:category])
+
+    category = Category.new
+    category.name = params[:category]
+    category.save
+    link.category << category
+
+    link.save
     redirect to('/links')
   end
 
