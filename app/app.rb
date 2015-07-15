@@ -11,6 +11,7 @@ class TechmarkManager < Sinatra::Base
   enable :sessions, :static
   set :session_secret, 'super-secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb :index
@@ -42,7 +43,22 @@ class TechmarkManager < Sinatra::Base
     end
   end
 
-  post '/sessions' do
+  get '/session/new' do
+    erb :'user/sign_in'
+  end
+
+  post '/session' do
+    user = User.authenticate(params[:username], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/links'
+    else
+      flash.now[:errors] = ['The username or password is incorrect']
+      erb :'user/sign_in'
+    end
+  end
+
+  delete '/session' do
     session.clear
     flash[:notice] = 'Goodbye'
     redirect '/'
