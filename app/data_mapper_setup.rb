@@ -9,4 +9,4 @@ Dir["./app/models/*.rb"].each {|file| require file}
 
 DataMapper.finalize
 
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!

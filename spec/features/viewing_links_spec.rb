@@ -16,8 +16,6 @@ feature 'Viewing links' do
       expect(page).to have_content('useful for basics')
     end
 
-
-
   end
 
 end
