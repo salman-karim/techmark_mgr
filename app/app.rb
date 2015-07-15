@@ -28,12 +28,17 @@ class TechmarkManager < Sinatra::Base
 
   post '/links' do
     link = Link.new(url: params[:url], title: params[:title], description: params[:description])
-    # Category.create(category: params[:category])
 
-    category = Category.new
-    category.name = params[:category]
-    category.save
-    link.category << category
+
+    multi_category = params[:category].split
+    multi_category_count = multi_category.count
+
+    multi_category_count.times do
+      category = Category.new
+      category.name = multi_category.shift
+      category.save
+      link.category << category
+    end
 
     link.save
     redirect to('/links')

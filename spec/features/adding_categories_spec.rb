@@ -10,6 +10,7 @@ feature 'Adding categories' do
     click_button 'Create link'
     link = Link.first
     expect(link.category.map { |category| category.name } ).to include('self-learning')
+    expect(page).to have_content('self-learning')
   end
 
 end
