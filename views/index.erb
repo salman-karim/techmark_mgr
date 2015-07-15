@@ -12,6 +12,7 @@
     <div class='indexBody'>
 
     <button id="signUpButton">Sign Up</button>
+    <button id="signInButton">Sign In</button>
 
     <form id="signUpForm"action='/user' method="post">
       <p><label>First Name</label><input class="entryField" type="text" name="first_name" value='<%= @user.first_name %>' placeholder="John" required></p>
@@ -22,8 +23,6 @@
       <p><label>Confirm Password</label><input class="entryField" type="password" name="password_confirmation" placeholder="Confirm Password" required></p>
       <input type="submit" value="Sign up"></p>
     </form>
-
-    <button id="signInButton">Sign In</button>
 
     <form id="signInForm" action="/session" method="post">
       <p><label>Username</label><input class="entryField" type="text" name="username" placeholder="Username"></p>

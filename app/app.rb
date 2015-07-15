@@ -33,10 +33,10 @@ class TechmarkManager < Sinatra::Base
     redirect to('/links')
   end
 
-  get  '/user/new' do
-    @user = User.new
-    erb :'user/new'
-  end
+  # get '/user/new' do
+  #   @user = User.new
+  #   erb :'user/new'
+  # end
 
   post '/user' do
     @user = User.new(first_name: params[:first_name],
@@ -55,9 +55,9 @@ class TechmarkManager < Sinatra::Base
     end
   end
 
-  get '/session/new' do
-    erb :'user/sign_in'
-  end
+  # get '/session/new' do
+  #   erb :'user/sign_in'
+  # end
 
   post '/session' do
     user = User.authenticate(params[:username], params[:password])
