@@ -8,6 +8,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
+require 'database_cleaner'
+require 'tilt/erb'
 
 Dir["./spec/factories/*.rb"].each {|file| require file}
 Dir["./spec/helpers/*.rb"].each {|file| require file}
@@ -28,4 +30,18 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
 end
