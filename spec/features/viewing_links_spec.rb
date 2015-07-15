@@ -2,7 +2,9 @@
 feature 'Viewing links' do
 
   scenario 'I can see existing links on the page' do
-    Link.create(url: 'www.rubymonk.com',title: 'Ruby Monk', category: 'ruby' , topic: 'tutorial', description: 'useful for basics')
+    Link.create(URL: 'www.rubymonk.com',title: 'Ruby Monk',
+        category: [Category.first_or_create(name: 'ruby')],
+        description: 'useful for basics')
     visit '/links'
     expect(page.status_code).to eq 200
 
