@@ -1,0 +1,12 @@
+
+
+<ul id="links">
+  <% @links.each do |link| %>
+    <li>
+      URL: <%= link.url %>
+      Title: <%= link.title %>
+      <!-- Category: <%= link.category %> -->
+      Description: <%= link.description %>
+    </li>
+  <% end %>
+</ul>

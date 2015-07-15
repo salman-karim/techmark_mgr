@@ -18,7 +18,18 @@ class TechmarkManager < Sinatra::Base
   end
 
   get '/links' do
-    erb :links
+    @links = Link.all
+    erb :'links/links'
+  end
+
+  get '/links/new' do
+    erb :'links/new'
+  end
+
+  post '/links' do
+    Link.create(url: params[:url], title: params[:title], description: params[:description])
+    # Category.create(category: params[:category])
+    redirect to('/links')
   end
 
   get  '/user/new' do
@@ -71,6 +82,7 @@ class TechmarkManager < Sinatra::Base
     end
 
   end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
