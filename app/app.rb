@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require './data_mapper_setup'
+require './app/data_mapper_setup'
 require 'data_mapper'
 
 class TechmarkManager < Sinatra::Base
@@ -12,6 +12,7 @@ class TechmarkManager < Sinatra::Base
 
   get '/links' do
 
+    @links = Link.all
     erb :links
   end
 
