@@ -3,8 +3,8 @@
 <ul id="links">
   <% @links.each do |link| %>
     <ul>
-      <!-- URL: <%= link.url %> -->
-      Title: <a href="<%= link.url %>"><%= link.title %></a>
+      URL: <%= link.url %>
+      Title: <a src="/<%= link.url %>"><%= link.title %></a>
       Category: <%= link.category %>
       Description: <%= link.description %>
     </ul>
