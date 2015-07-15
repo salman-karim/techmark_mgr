@@ -4,14 +4,14 @@ feature 'creating links' do
 
   scenario 'I can create new links' do
     visit '/links/new'
-    fill_in 'url', with 'www.codewars.com'
-    fill_in 'title', with 'Code Wars'
-    fill_in 'category', with 'General'
-    fill_in 'topic', with 'tutorial'
-    fill_in 'description', with 'self-learning'
+    fill_in 'URL', with: 'www.codewars.com'
+    fill_in 'title', with: 'Code Wars'
+    fill_in 'category', with: 'General'
+    fill_in 'description', with: 'self-learning'
     click_button 'Create link'
 
-    expect(currrent_path).to eq '/links'
+    expect(current_path).to eq '/links'
+    expect(Link.count).to eq 1
 
     within 'ul#links' do
       expect(page).to have_content('Code Wars')
