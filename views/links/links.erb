@@ -1,16 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>links</title>
+
+  </head>
+
+  <body>
 
 
-<ul id="links">
-  <% @links.each do |link| %>
-    <% cat_string = '' %>
-    <% link.categories.each {|category| cat_string << category.name + " "} %>
-      <ul>
-        URL: <a href="<%= link.url %>"><%= link.url %></a>
-        Title: <%= link.title %>
-        Category: <%= cat_string %>
-        Description: <%= link.description %>
-      </ul>
-  <% end %>
-</ul>
+    <h1>Key Topics</h1>
+
+    <a href='' id="category">Ruby</p>
+    <a href=''id="category">Javascript</p>
+
+
+    <ul id="links">
+      <% @links.each do |link| %>
+        <% cat_string = '' %>
+        <% link.categories.each {|category| cat_string << category.name + " "} %>
+          <ul>
+            URL: <a href="<%= link.url %>"><%= link.url %></a>
+            Title: <%= link.title %>
+            Category: <%= cat_string %>
+            Description: <%= link.description %>
+          </ul>
+      <% end %>
+    </ul>
 
 <a href='/links/new'>Add a new link</a>
+
+
+  </body>
+
+
+</html>
