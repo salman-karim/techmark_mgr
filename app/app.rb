@@ -45,6 +45,14 @@ class TechmarkManager < Sinatra::Base
     redirect to('/links')
   end
 
+  get '/links/:name' do
+    category = Category.first(name: params[:name])
+    @links = category ? category.links : []
+    erb :'links/links'
+
+
+  end
+
   get  '/user/new' do
     @user = User.new
     erb :'user/new'

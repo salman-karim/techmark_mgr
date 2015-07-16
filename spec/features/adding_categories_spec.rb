@@ -5,11 +5,11 @@ feature 'Adding categories' do
     visit 'links/new'
     fill_in 'url', with: 'www.rubykoans.com'
     fill_in 'title', with: 'Ruby Koans'
-    fill_in 'category', with: 'self-learning Ruby'
+    fill_in 'category', with: 'self-learning ruby'
     fill_in 'description', with: 'Useful for precourse'
     click_button 'Create link'
     link = Link.first
-    expect(link.categories.map { |category| category.name } ).to include('self-learning')
+    expect(link.categories.map { |category| category.name} ).to include('self-learning')
     expect(page).to have_content('self-learning')
   end
 
