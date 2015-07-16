@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
 require 'sinatra/flash'
+require 'byebug'
 
 require './app/data_mapper_setup.rb'
 
@@ -28,12 +29,32 @@ class TechmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    Link.create(url: params[:url], title: params[:title], description: params[:description])
-    # Category.create(category: params[:category])
+    link = Link.new(url: params[:url], title: params[:title], description: params[:description])
+
+
+    multi_category = params[:category].split
+    multi_category_count = multi_category.count
+
+    multi_category_count.times do
+      category = Category.new
+      category.name = multi_category.shift
+      category.save
+      link.categories << category
+    end
+
+    link.save
     redirect to('/links')
   end
 
-  # get '/user/new' do
+  get '/links/:name' do
+    category = Category.first(name: params[:name])
+    @links = category ? category.links : []
+    erb :'links/links'
+
+
+  end
+
+  # get  '/user/new' do
   #   @user = User.new
   #   erb :'user/new'
   # end

@@ -8,6 +8,8 @@ gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'launchy'
+gem 'byebug'
+
 
   group :development, :test do
     gem 'rspec'
@@ -15,5 +17,3 @@ gem 'launchy'
     gem 'database_cleaner'
     gem 'factory_girl'
   end
-
-end

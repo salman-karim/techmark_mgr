@@ -8,6 +8,6 @@ class Link
   property :title, String, length: 50, required: true
   property :description, Text, length: 200
 
-  has n, :category, through: Resource
+  has n, :categories, through: Resource
 
 end

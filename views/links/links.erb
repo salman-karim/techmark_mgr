@@ -2,11 +2,15 @@
 
 <ul id="links">
   <% @links.each do |link| %>
-    <li>
-      URL: <%= link.url %>
-      Title: <%= link.title %>
-      <!-- Category: <%= link.category %> -->
-      Description: <%= link.description %>
-    </li>
+    <% cat_string = '' %>
+    <% link.categories.each {|category| cat_string << category.name + " "} %>
+      <ul>
+        URL: <a href="<%= link.url %>"><%= link.url %></a>
+        Title: <%= link.title %>
+        Category: <%= cat_string %>
+        Description: <%= link.description %>
+      </ul>
   <% end %>
 </ul>
+
+<a href='/links/new'>Add a new link</a>
