@@ -34,6 +34,11 @@ body {
 
 }
 
+.signOutFlash {
+  text-align: center;
+  margin-top: 2em;
+}
+
 .entryField:focus::-webkit-input-placeholder {
    font-weight: lighter;
    color: transparent;
@@ -81,9 +86,8 @@ color:#999;
   color:#999;
 }
 
-input[type=submit] {
+input[type=submit], button {
 margin-top: 2em;
-
 border : solid 1px #c7c7c7;
 moz-border-radius : 5px;
 -webkit-box-shadow : 0px 2px 5px rgba(0,0,0,0.8);
@@ -98,11 +102,13 @@ filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', en
 text-align: center;
 }
 
+input.signOutButton {
+  margin-top: none;
+  margin-left: 2em;
+  padding: none;
+}
+
 label {
   width: 9em;
-  float: left;
-  text-align: right;
-  margin-right: 0.5em;
-  display: block
-
+  text-align: left;
 }
