@@ -2,12 +2,14 @@
 
 <ul id="links">
   <% @links.each do |link| %>
-    <ul>
-      URL: <%= link.url %>
-      Title: <a src="/<%= link.url %>"><%= link.title %></a>
-      Category: <%= link.category.get(1).name %>
-      Description: <%= link.description %>
-    </ul>
+    <% cat_string = '' %>
+    <% link.categories.each {|category| cat_string << category.name + " "} %>
+      <ul>
+        URL: <a href="<%= link.url %>"><%= link.url %></a>
+        Title: <%= link.title %>
+        Category: <%= cat_string %>
+        Description: <%= link.description %>
+      </ul>
   <% end %>
 </ul>
 

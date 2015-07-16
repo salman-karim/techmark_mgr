@@ -5,7 +5,7 @@ feature 'Creating links' do
     visit '/links/new'
     fill_in 'url', with: 'www.codewars.com'
     fill_in 'title', with: 'Code Wars'
-    # fill_in 'category', with: 'General'
+    fill_in 'category', with: 'General'
     fill_in 'description', with: 'self-learning'
     click_button 'Create link'
 
