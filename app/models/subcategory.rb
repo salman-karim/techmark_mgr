@@ -1,6 +1,6 @@
 require 'data_mapper'
 
-class Category
+class Subcategory
 
   include DataMapper::Resource
 
@@ -8,6 +8,6 @@ class Category
   property :name, String, required: true
 
   has n, :links, through: Resource
-  has n, :subcategories
+  belongs_to :category
 
 end
