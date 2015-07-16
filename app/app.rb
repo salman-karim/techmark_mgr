@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
 require 'sinatra/flash'
+require 'byebug'
 
 require './app/data_mapper_setup.rb'
 
@@ -37,7 +38,7 @@ class TechmarkManager < Sinatra::Base
       category = Category.new
       category.name = multi_category.shift
       category.save
-      link.category << category
+      link.categories << category
     end
 
     link.save
