@@ -8,7 +8,6 @@ feature 'Creating links' do
     select 'General', from: 'category'
     fill_in 'description', with: 'self-learning'
     click_button 'Create link'
-
     expect(current_path).to eq '/links'
     # expect(Link.count).to eq 1
 

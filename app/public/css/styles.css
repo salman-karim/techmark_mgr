@@ -1,0 +1,114 @@
+
+body {
+    font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+}
+
+.indexTitle {
+  font-family: 'Source Code Pro' ;
+  font-size: 50px;
+  letter-spacing: 7px;
+  text-align: center;
+
+}
+
+.indexBody {
+  text-align: center;
+
+}
+.entryField {
+  width: 20em;
+  height: 2em;
+  background-color: #F0F0F0;
+  outline: none;
+  border: none
+  font-weight: lighter;
+}
+
+.entryField:focus {
+  width: 20em;
+  height: 2em;
+  background-color: white;
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+
+}
+
+.signOutFlash {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.entryField:focus::-webkit-input-placeholder {
+   font-weight: lighter;
+   color: transparent;
+
+}
+
+.entryField:focus:-moz-placeholder { /* Firefox 18- */
+   font-weight: lighter;
+   color: transparent;
+
+}
+
+.entryField:focus::-moz-placeholder {  /* Firefox 19+ */
+   font-weight: lighter;
+   color: transparent;
+
+}
+
+.entryField:focus:-ms-input-placeholder {
+   font-weight: lighter;
+   color: transparent;
+
+}
+
+::-webkit-input-placeholder {
+text-align: left;
+letter-spacing:2px;
+color:#999;
+}
+:-moz-placeholder { /* Firefox 18- */
+  text-align: left;
+  letter-spacing:2px;
+  color:#999;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: left;
+  letter-spacing:2px;
+  color:#999;
+}
+
+:-ms-input-placeholder {
+  text-align: left;
+  letter-spacing:2px;
+  color:#999;
+}
+
+input[type=submit], button {
+margin-top: 2em;
+border : solid 1px #c7c7c7;
+moz-border-radius : 5px;
+-webkit-box-shadow : 0px 2px 5px rgba(0,0,0,0.8);
+-moz-box-shadow : 0px 2px 5px rgba(0,0,0,0.8);
+box-shadow : 0px 2px 5px rgba(0,0,0,0.5);
+font-size : 15px;
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+color : black;
+padding : 2px 15px;
+background : #F0F0F0 ;
+filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e6e6e6',GradientType=0 );
+text-align: center;
+}
+
+input.signOutButton {
+  margin-top: none;
+  margin-left: 2em;
+  padding: none;
+}
+
+label {
+  width: 9em;
+  text-align: left;
+}
