@@ -29,7 +29,7 @@ class TechmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    link = Link.new(url: params[:url], title: params[:title], description: params[:description])
+    link = Link.new(url: params[:url], title: params[:title].capitalize, description: params[:description].capitalize)
 
 
     multi_category = params[:category].split
@@ -37,7 +37,7 @@ class TechmarkManager < Sinatra::Base
 
     multi_category_count.times do
       category = Category.new
-      category.name = multi_category.shift
+      category.name = multi_category.shift.capitalize
       category.save
       link.categories << category
     end
@@ -47,10 +47,9 @@ class TechmarkManager < Sinatra::Base
   end
 
   get '/links/:name' do
-    category = Category.first(name: params[:name])
+    category = Category.first(name: params[:name].capitalize)
     @links = category ? category.links : []
     erb :'links/links'
-
 
   end
 
