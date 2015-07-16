@@ -5,7 +5,7 @@
     <ul>
       URL: <%= link.url %>
       Title: <a src="/<%= link.url %>"><%= link.title %></a>
-      Category: <%= link.category %>
+      Category: <%= link.category.get(1).name %>
       Description: <%= link.description %>
     </ul>
   <% end %>
